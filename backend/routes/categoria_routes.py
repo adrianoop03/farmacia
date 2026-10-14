@@ -7,7 +7,7 @@ from controllers.categoria_controller import (
     eliminar_categoria,
 )
 
-categorias_bp = Blueprint("categorias", __name__, url_prefix="/api/categorias")
+categoria_bp = Blueprint("categoria", __name__)
 
 
 def _respuesta(resultado):
@@ -20,36 +20,36 @@ def _json_body():
 
 
 # GET /api/categorias
-@categorias_bp.route("", methods=["GET"])
+@categoria_bp.route("", methods=["GET"])
 def get_categorias():
     return _respuesta(listar_categorias())
 
 
 # GET /api/categorias/<id>
-@categorias_bp.route("/<int:categoria_id>", methods=["GET"])
+@categoria_bp.route("/<int:categoria_id>", methods=["GET"])
 def get_categoria(categoria_id):
     return _respuesta(obtener_categoria(categoria_id))
 
 
 # POST /api/categorias
-@categorias_bp.route("", methods=["POST"])
+@categoria_bp.route("", methods=["POST"])
 def post_categoria():
     return _respuesta(crear_categoria(_json_body()))
 
 
 # PUT /api/categorias/<id>
-@categorias_bp.route("/<int:categoria_id>", methods=["PUT"])
+@categoria_bp.route("/<int:categoria_id>", methods=["PUT"])
 def put_categoria(categoria_id):
     return _respuesta(actualizar_categoria(categoria_id, _json_body()))
 
 
 # PATCH /api/categorias/<id>  (tu función ya soporta actualización parcial)
-@categorias_bp.route("/<int:categoria_id>", methods=["PATCH"])
+@categoria_bp.route("/<int:categoria_id>", methods=["PATCH"])
 def patch_categoria(categoria_id):
     return _respuesta(actualizar_categoria(categoria_id, _json_body()))
 
 
 # DELETE /api/categorias/<id>
-@categorias_bp.route("/<int:categoria_id>", methods=["DELETE"])
+@categoria_bp.route("/<int:categoria_id>", methods=["DELETE"])
 def delete_categoria(categoria_id):
     return _respuesta(eliminar_categoria(categoria_id))

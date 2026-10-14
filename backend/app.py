@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
-from config import Config
+from config import config
 from models import db
 from routes.medicamento_routes import medicamento_bp
 from routes.categoria_routes import categoria_bp
@@ -8,8 +8,8 @@ from routes.empleado_routes import empleado_bp
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object(Config)
-
+    app.config.from_object(config)
+    
     CORS(app)
     db.init_app(app)
 

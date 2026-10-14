@@ -1,22 +1,17 @@
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
 
 load_dotenv()
 
-#Configuracion de la base de datos
-user = os.getenv("MYSQL_USER")
-password = os.getenv("MYSQL_PASSWORD")
-host = os.getenv("MYSQL_HOST")
-database = os.getenv("MYSQL_DATABASE")
-port = os.getenv("MYSQL_PORT")
+DB_USER = os.getenv("DB_USER", "root")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "")
+DB_HOST = os.getenv("DB_HOST", "localhost")
+DB_PORT = os.getenv("DB_PORT", "3307")
+DB_NAME = os.getenv("DB_NAME", "farmacia_db")
 
-DATABASE_CONNECTION_URI = f"mysql+pymysql://{user}:{password}@{host}:{port}/{database}"
-
-#Configuracion para flask-login
-mail_server = 'smtp.gmail.com'
-mail_port = 587
-use_tls = True
-mail_username = os.getenv("MAIL_USERNAME")
-mail_password = os.getenv("MAIL_PASSWORD")
-
-secret_key = os.getenv("SECRET_KEY")
+SQLALCHEMY_DATABASE_URI = (
+    f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+    "?charset=utf8mb4"
+)
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+DEBUG = True

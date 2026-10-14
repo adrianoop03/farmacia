@@ -7,7 +7,7 @@ from controllers.empleado_controller import (
     eliminar_empleado,
 )
 
-empleados_bp = Blueprint("empleados", __name__, url_prefix="/api/empleados")
+empleado_bp = Blueprint("empleado", __name__)
 
 
 def _respuesta(resultado):
@@ -20,36 +20,36 @@ def _json_body():
 
 
 # GET /api/empleados
-@empleados_bp.route("", methods=["GET"])
+@empleado_bp.route("", methods=["GET"])
 def get_empleados():
     return _respuesta(listar_empleados())
 
 
 # GET /api/empleados/<id>
-@empleados_bp.route("/<int:empleado_id>", methods=["GET"])
+@empleado_bp.route("/<int:empleado_id>", methods=["GET"])
 def get_empleado(empleado_id):
     return _respuesta(obtener_empleado(empleado_id))
 
 
 # POST /api/empleados
-@empleados_bp.route("", methods=["POST"])
+@empleado_bp.route("", methods=["POST"])
 def post_empleado():
     return _respuesta(crear_empleado(_json_body()))
 
 
 # PUT /api/empleados/<id>
-@empleados_bp.route("/<int:empleado_id>", methods=["PUT"])
+@empleado_bp.route("/<int:empleado_id>", methods=["PUT"])
 def put_empleado(empleado_id):
     return _respuesta(actualizar_empleado(empleado_id, _json_body()))
 
 
 # PATCH /api/empleados/<id>  (la función ya soporta actualización parcial)
-@empleados_bp.route("/<int:empleado_id>", methods=["PATCH"])
+@empleado_bp.route("/<int:empleado_id>", methods=["PATCH"])
 def patch_empleado(empleado_id):
     return _respuesta(actualizar_empleado(empleado_id, _json_body()))
 
 
 # DELETE /api/empleados/<id>
-@empleados_bp.route("/<int:empleado_id>", methods=["DELETE"])
+@empleado_bp.route("/<int:empleado_id>", methods=["DELETE"])
 def delete_empleado(empleado_id):
     return _respuesta(eliminar_empleado(empleado_id))

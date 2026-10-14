@@ -7,7 +7,7 @@ from controllers.medicamento_controller import (
     eliminar_medicamento,
 )
 
-medicamentos_bp = Blueprint("medicamentos", __name__, url_prefix="/api/medicamentos")
+medicamento_bp = Blueprint("medicamento", __name__)
 
 
 def _respuesta(resultado):
@@ -20,36 +20,36 @@ def _json_body():
 
 
 # GET /api/medicamentos
-@medicamentos_bp.route("", methods=["GET"])
+@medicamento_bp.route("", methods=["GET"])
 def get_medicamentos():
     return _respuesta(listar_medicamentos())
 
 
 # GET /api/medicamentos/<id>
-@medicamentos_bp.route("/<int:medicamento_id>", methods=["GET"])
+@medicamento_bp.route("/<int:medicamento_id>", methods=["GET"])
 def get_medicamento(medicamento_id):
     return _respuesta(obtener_medicamento(medicamento_id))
 
 
 # POST /api/medicamentos
-@medicamentos_bp.route("", methods=["POST"])
+@medicamento_bp.route("", methods=["POST"])
 def post_medicamento():
     return _respuesta(crear_medicamento(_json_body()))
 
 
 # PUT /api/medicamentos/<id>
-@medicamentos_bp.route("/<int:medicamento_id>", methods=["PUT"])
+@medicamento_bp.route("/<int:medicamento_id>", methods=["PUT"])
 def put_medicamento(medicamento_id):
     return _respuesta(actualizar_medicamento(medicamento_id, _json_body()))
 
 
 # PATCH /api/medicamentos/<id>  (la función ya soporta actualización parcial)
-@medicamentos_bp.route("/<int:medicamento_id>", methods=["PATCH"])
+@medicamento_bp.route("/<int:medicamento_id>", methods=["PATCH"])
 def patch_medicamento(medicamento_id):
     return _respuesta(actualizar_medicamento(medicamento_id, _json_body()))
 
 
 # DELETE /api/medicamentos/<id>
-@medicamentos_bp.route("/<int:medicamento_id>", methods=["DELETE"])
+@medicamento_bp.route("/<int:medicamento_id>", methods=["DELETE"])
 def delete_medicamento(medicamento_id):
     return _respuesta(eliminar_medicamento(medicamento_id))
