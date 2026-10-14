@@ -16,6 +16,7 @@ import { styled } from '@mui/material/styles';
 import AppTheme from '../shared-theme/AppTheme';
 import ColorModeSelect from '../shared-theme/ColorModeSelect';
 import { GoogleIcon, FacebookIcon, SitemarkIcon } from './components/CustomIcons';
+import logo from '../../assets/logo.png';
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',
@@ -119,21 +120,19 @@ export default function SignUp(props) {
       <CssBaseline enableColorScheme />
       <SignUpContainer direction="column" sx={{ justifyContent: 'space-between' }}>
         <Card variant="outlined">
-          <SitemarkIcon />
-          <Typography
-            component="h2"
-            variant="h4"
-            sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)' }}
-          >
-            Sign up
-          </Typography>
+          <Box
+            component="img"
+            src={logo}
+            alt="Logo de la farmacia"
+            sx={{ height: 48, width: 'auto', alignSelf: 'flex-start' }}
+          />
           <Box
             component="form"
             onSubmit={handleSubmit}
             sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
           >
             <FormControl>
-              <FormLabel htmlFor="name">Full name</FormLabel>
+              <FormLabel htmlFor="name">Nombre y apellido</FormLabel>
               <TextField
                 autoComplete="name"
                 name="name"
@@ -162,7 +161,7 @@ export default function SignUp(props) {
               />
             </FormControl>
             <FormControl>
-              <FormLabel htmlFor="password">Password</FormLabel>
+              <FormLabel htmlFor="password">Constaseña</FormLabel>
               <TextField
                 required
                 fullWidth
@@ -177,47 +176,32 @@ export default function SignUp(props) {
                 color={passwordError ? 'error' : 'primary'}
               />
             </FormControl>
-            <FormControlLabel
-              control={<Checkbox value="allowExtraEmails" color="primary" />}
-              label="I want to receive updates via email."
-            />
             <Button
               type="submit"
               fullWidth
               variant="contained"
-              onClick={validateInputs}
+              sx={{
+                backgroundImage: 'none',
+                backgroundColor: 'primary.main',
+                border: 'none',
+                '&:hover': { backgroundColor: 'primary.dark', backgroundImage: 'none' },
+              }}
             >
-              Sign up
+              Crear cuenta
             </Button>
           </Box>
           <Divider>
-            <Typography sx={{ color: 'text.secondary' }}>or</Typography>
+            <Typography sx={{ color: 'text.secondary' }}>O</Typography>
           </Divider>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-            <Button
-              fullWidth
-              variant="outlined"
-              onClick={() => alert('Sign up with Google')}
-              startIcon={<GoogleIcon />}
-            >
-              Sign up with Google
-            </Button>
-            <Button
-              fullWidth
-              variant="outlined"
-              onClick={() => alert('Sign up with Facebook')}
-              startIcon={<FacebookIcon />}
-            >
-              Sign up with Facebook
-            </Button>
             <Typography sx={{ textAlign: 'center' }}>
-              Already have an account?{' '}
+              ¿Ya tienes una cuenta?{' '}
               <Link
                 href="/material-ui/getting-started/templates/sign-in/"
                 variant="body2"
                 sx={{ alignSelf: 'center' }}
               >
-                Sign in
+                Inicia sesión
               </Link>
             </Typography>
           </Box>
