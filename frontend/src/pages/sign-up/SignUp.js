@@ -15,7 +15,6 @@ import MuiCard from '@mui/material/Card';
 import { styled } from '@mui/material/styles';
 import AppTheme from '../shared-theme/AppTheme';
 import ColorModeSelect from '../shared-theme/ColorModeSelect';
-import { GoogleIcon, FacebookIcon, SitemarkIcon } from './components/CustomIcons';
 import logo from '../../assets/logo.png';
 
 const Card = styled(MuiCard)(({ theme }) => ({
@@ -126,6 +125,13 @@ export default function SignUp(props) {
             alt="Logo de la farmacia"
             sx={{ height: 48, width: 'auto', alignSelf: 'flex-start' }}
           />
+          <Typography
+            component="h1"
+            variant="h4"
+            sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)' }}
+          >
+            Registro
+          </Typography>
           <Box
             component="form"
             onSubmit={handleSubmit}
