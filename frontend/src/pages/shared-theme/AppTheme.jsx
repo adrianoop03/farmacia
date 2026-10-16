@@ -1,3 +1,5 @@
+// src/pages/shared-theme/AppTheme.jsx
+
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -15,12 +17,13 @@ function AppTheme(props) {
     return disableCustomTheme
       ? {}
       : createTheme({
-          // For more details about CSS variables configuration, see https://mui.com/material-ui/customization/css-theme-variables/configuration/
+          // Solo modo claro: colorSchemes contiene únicamente "light".
           cssVariables: {
             colorSchemeSelector: 'data-mui-color-scheme',
             cssVarPrefix: 'template',
           },
-          colorSchemes, // Recently added in v6 for building light & dark mode app, see https://mui.com/material-ui/customization/palette/#color-schemes
+          defaultColorScheme: 'light',
+          colorSchemes,
           typography,
           shadows,
           shape,

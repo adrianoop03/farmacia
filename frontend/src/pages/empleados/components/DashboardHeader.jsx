@@ -1,3 +1,5 @@
+// src/pages/empleados/components/DashboardHeader.jsx
+
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { styled, useTheme } from '@mui/material/styles';
@@ -11,7 +13,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import Stack from '@mui/material/Stack';
 import { Link } from 'react-router';
-import ThemeSwitcher from './ThemeSwitcher';
 
 const AppBar = styled(MuiAppBar)(({ theme }) => ({
   borderWidth: 0,
@@ -41,18 +42,18 @@ function DashboardHeader({ logo, title, menuOpen, onToggleMenu }) {
 
   const getMenuIcon = React.useCallback(
     (isExpanded) => {
-      const expandMenuActionText = 'Expand';
-      const collapseMenuActionText = 'Collapse';
+      const expandMenuActionText = 'Expandir';
+      const collapseMenuActionText = 'Contraer';
 
       return (
         <Tooltip
-          title={`${isExpanded ? collapseMenuActionText : expandMenuActionText} menu`}
+          title={`${isExpanded ? collapseMenuActionText : expandMenuActionText} menú`}
           enterDelay={1000}
         >
           <div>
             <IconButton
               size="small"
-              aria-label={`${isExpanded ? collapseMenuActionText : expandMenuActionText} navigation menu`}
+              aria-label={`${isExpanded ? collapseMenuActionText : expandMenuActionText} menú de navegación`}
               onClick={handleMenuOpen}
             >
               {isExpanded ? <MenuOpenIcon /> : <MenuIcon />}
@@ -98,15 +99,7 @@ function DashboardHeader({ logo, title, menuOpen, onToggleMenu }) {
               </Stack>
             </Link>
           </Stack>
-          <Stack
-            direction="row"
-            spacing={1}
-            sx={{ alignItems: 'center', marginLeft: 'auto' }}
-          >
-            <Stack direction="row" sx={{ alignItems: 'center' }}>
-              <ThemeSwitcher />
-            </Stack>
-          </Stack>
+          {/* El botón de modo claro/oscuro (ThemeSwitcher) se quitó: la app es solo clara. */}
         </Stack>
       </Toolbar>
     </AppBar>
