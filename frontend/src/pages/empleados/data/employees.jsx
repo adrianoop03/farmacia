@@ -37,11 +37,11 @@ async function request(url, options = {}) {
 
   if (!response.ok) {
     const body = await response.json().catch(() => ({}));
+    const detalle = body.errores ? Object.values(body.errores).join('. ') : null;
     throw new Error(
-      body.message ?? body.error ?? `Error del servidor (${response.status})`,
+      body.message ?? body.error ?? detalle ?? `Error del servidor (${response.status})`,
     );
   }
-
   return response.status === 204 ? null : response.json();
 }
 
