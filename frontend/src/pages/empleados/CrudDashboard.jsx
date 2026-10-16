@@ -1,3 +1,5 @@
+// src/pages/empleados/CrudDashboard.jsx
+
 import CssBaseline from '@mui/material/CssBaseline';
 import { createHashRouter, RouterProvider } from 'react-router';
 import DashboardLayout from './components/DashboardLayout';
@@ -5,6 +7,10 @@ import EmployeeList from './components/EmployeeList';
 import EmployeeShow from './components/EmployeeShow';
 import EmployeeCreate from './components/EmployeeCreate';
 import EmployeeEdit from './components/EmployeeEdit';
+import CategoriaList from '../categorias/components/CategoriaList';
+import CategoriaShow from '../categorias/components/CategoriaShow';
+import CategoriaCreate from '../categorias/components/CategoriaCreate';
+import CategoriaEdit from '../categorias/components/CategoriaEdit';
 import NotificationsProvider from './hooks/useNotifications/NotificationsProvider';
 import DialogsProvider from './hooks/useDialogs/DialogsProvider';
 import AppTheme from '../shared-theme/AppTheme';
@@ -19,6 +25,7 @@ const router = createHashRouter([
   {
     Component: DashboardLayout,
     children: [
+      // ----- Empleados -----
       {
         path: '/employees',
         Component: EmployeeList,
@@ -34,6 +41,23 @@ const router = createHashRouter([
       {
         path: '/employees/:employeeId/edit',
         Component: EmployeeEdit,
+      },
+      // ----- Categorías -----
+      {
+        path: '/categorias',
+        Component: CategoriaList,
+      },
+      {
+        path: '/categorias/:categoriaId',
+        Component: CategoriaShow,
+      },
+      {
+        path: '/categorias/new',
+        Component: CategoriaCreate,
+      },
+      {
+        path: '/categorias/:categoriaId/edit',
+        Component: CategoriaEdit,
       },
       // Fallback route for the example routes in dashboard sidebar items
       {
