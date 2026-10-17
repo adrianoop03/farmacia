@@ -30,6 +30,4 @@ export default function App() {
       {/* Rutas desconocidas */}
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="*" element={<Navigate to="/login" replace />} />
-    </Routes>
-  );
-}
+    </Routes>)}
