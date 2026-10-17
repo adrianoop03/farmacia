@@ -12,7 +12,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useLocation, useNavigate, useSearchParams } from 'react-router';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { useDialogs } from '../../empleados/hooks/useDialogs/useDialogs';
 import useNotifications from '../../empleados/hooks/useNotifications/useNotifications';
 import PageContainer from '../../empleados/components/PageContainer';

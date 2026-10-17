@@ -1,7 +1,7 @@
 // src/pages/medicamentos/components/MedicamentoCreate.jsx
 
 import * as React from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import useNotifications from '../../empleados/hooks/useNotifications/useNotifications';
 import PageContainer from '../../empleados/components/PageContainer';
 import {

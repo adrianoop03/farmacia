@@ -12,7 +12,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useLocation, useNavigate, useSearchParams } from 'react-router';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { useDialogs } from '../hooks/useDialogs/useDialogs';
 import useNotifications from '../hooks/useNotifications/useNotifications';
 import {
@@ -145,18 +145,18 @@ export default function EmployeeList() {
 
   const handleRowClick = React.useCallback(
     ({ row }) => {
-      navigate(`/employees/${row.id}`);
+      navigate(`/empleados/${row.id}`);
     },
     [navigate],
   );
 
   const handleCreateClick = React.useCallback(() => {
-    navigate('/employees/new');
+    navigate('/empleados/new');
   }, [navigate]);
 
   const handleRowEdit = React.useCallback(
     (employee) => () => {
-      navigate(`/employees/${employee.id}/edit`);
+      navigate(`/empleados/${employee.id}/edit`);
     },
     [navigate],
   );

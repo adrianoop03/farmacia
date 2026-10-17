@@ -1,7 +1,7 @@
 // src/pages/empleados/CrudDashboard.jsx
 
 import CssBaseline from '@mui/material/CssBaseline';
-import { createHashRouter, RouterProvider } from 'react-router';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import DashboardLayout from './components/DashboardLayout';
 import EmployeeList from './components/EmployeeList';
 import EmployeeShow from './components/EmployeeShow';
@@ -31,19 +31,19 @@ const router = createHashRouter([
     children: [
       // ----- Empleados -----
       {
-        path: '/employees',
+        path: '/empleados',
         Component: EmployeeList,
       },
       {
-        path: '/employees/:employeeId',
+        path: '/empleados/:employeeId',
         Component: EmployeeShow,
       },
       {
-        path: '/employees/new',
+        path: '/empleados/new',
         Component: EmployeeCreate,
       },
       {
-        path: '/employees/:employeeId/edit',
+        path: '/empleados/:employeeId/edit',
         Component: EmployeeEdit,
       },
       // ----- Categorías -----

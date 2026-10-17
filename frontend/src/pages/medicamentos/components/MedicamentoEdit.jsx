@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router-dom';
 import useNotifications from '../../empleados/hooks/useNotifications/useNotifications';
 import PageContainer from '../../empleados/components/PageContainer';
 import {

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router-dom';
 import useNotifications from '../hooks/useNotifications/useNotifications';
 import {
   getOne as getEmployee,
@@ -81,7 +81,7 @@ function EmployeeEditForm({ initialValues, onSubmit }) {
         autoHideDuration: 3000,
       });
 
-      navigate('/employees');
+      navigate('/empleados');
     } catch (editError) {
       notifications.show(
         `No se pudo editar el empleado. Motivo: ${editError.message}`,
@@ -101,7 +101,7 @@ function EmployeeEditForm({ initialValues, onSubmit }) {
       onSubmit={handleFormSubmit}
       onReset={handleFormReset}
       submitButtonLabel="Guardar"
-      backButtonPath={`/employees/${employeeId}`}
+      backButtonPath={`/empleados/${employeeId}`}
     />
   );
 }
@@ -185,8 +185,8 @@ export default function EmployeeEdit() {
     <PageContainer
       title={`Editar empleado ${employeeId}`}
       breadcrumbs={[
-        { title: 'Empleados', path: '/employees' },
-        { title: `Empleado ${employeeId}`, path: `/employees/${employeeId}` },
+        { title: 'Empleados', path: '/empleados' },
+        { title: `Empleado ${employeeId}`, path: `/empleados/${employeeId}` },
         { title: 'Editar' },
       ]}
     >

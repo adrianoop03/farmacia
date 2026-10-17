@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 function EmployeeForm(props) {
   const {
@@ -56,7 +56,7 @@ function EmployeeForm(props) {
   }, [formValues, onReset]);
 
   const handleBack = React.useCallback(() => {
-    navigate(backButtonPath ?? '/employees');
+    navigate(backButtonPath ?? '/empleados');
   }, [navigate, backButtonPath]);
 
   return (

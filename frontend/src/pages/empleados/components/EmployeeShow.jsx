@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDialogs } from '../hooks/useDialogs/useDialogs';
 import useNotifications from '../hooks/useNotifications/useNotifications';
 import {
@@ -52,7 +52,7 @@ export default function EmployeeShow() {
   }, [loadData]);
 
   const handleEmployeeEdit = React.useCallback(() => {
-    navigate(`/employees/${employeeId}/edit`);
+    navigate(`/empleados/${employeeId}/edit`);
   }, [navigate, employeeId]);
 
   const handleEmployeeDelete = React.useCallback(async () => {
@@ -75,7 +75,7 @@ export default function EmployeeShow() {
       try {
         await deleteEmployee(Number(employeeId));
 
-        navigate('/employees');
+        navigate('/empleados');
 
         notifications.show('Empleado eliminado correctamente.', {
           severity: 'success',
@@ -95,7 +95,7 @@ export default function EmployeeShow() {
   }, [employee, dialogs, employeeId, navigate, notifications]);
 
   const handleBack = React.useCallback(() => {
-    navigate('/employees');
+    navigate('/empleados');
   }, [navigate]);
 
   const renderShow = React.useMemo(() => {
@@ -214,7 +214,7 @@ export default function EmployeeShow() {
     <PageContainer
       title={pageTitle}
       breadcrumbs={[
-        { title: 'Empleados', path: '/employees' },
+        { title: 'Empleados', path: '/empleados' },
         { title: pageTitle },
       ]}
     >

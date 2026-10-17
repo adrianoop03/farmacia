@@ -1,7 +1,7 @@
 // src/pages/empleados/components/EmployeeCreate.js
 
 import * as React from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import useNotifications from '../hooks/useNotifications/useNotifications';
 import {
   createOne as createEmployee,
@@ -83,7 +83,7 @@ export default function EmployeeCreate() {
         autoHideDuration: 3000,
       });
 
-      navigate('/employees');
+      navigate('/empleados');
     } catch (createError) {
       notifications.show(
         `No se pudo crear el empleado. Motivo: ${createError.message}`,
@@ -99,7 +99,7 @@ export default function EmployeeCreate() {
   return (
     <PageContainer
       title="Nuevo empleado"
-      breadcrumbs={[{ title: 'Empleados', path: '/employees' }, { title: 'Nuevo' }]}
+      breadcrumbs={[{ title: 'Empleados', path: '/empleados' }, { title: 'Nuevo' }]}
     >
       <EmployeeForm
         formState={formState}

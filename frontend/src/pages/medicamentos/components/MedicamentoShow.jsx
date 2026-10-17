@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDialogs } from '../../empleados/hooks/useDialogs/useDialogs';
 import useNotifications from '../../empleados/hooks/useNotifications/useNotifications';
 import PageContainer from '../../empleados/components/PageContainer';

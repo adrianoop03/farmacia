@@ -11,7 +11,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import DescriptionIcon from '@mui/icons-material/Description';
 import LayersIcon from '@mui/icons-material/Layers';
-import { matchPath, useLocation } from 'react-router';
+import { matchPath, useLocation } from 'react-router-dom';
 import DashboardSidebarContext from '../context/DashboardSidebarContext';
 import { DRAWER_WIDTH, MINI_DRAWER_WIDTH } from '../constants';
 import DashboardSidebarPageItem from './DashboardSidebarPageItem';
@@ -151,7 +151,7 @@ function DashboardSidebar({
               title="Employees"
               icon={<PersonIcon />}
               href="/employees"
-              selected={!!matchPath('/employees/*', pathname) || pathname === '/'}
+              selected={!!matchPath('/empleados/*', pathname) || pathname === '/'}
             />
             <DashboardSidebarDividerItem />
             <DashboardSidebarHeaderItem>Example items</DashboardSidebarHeaderItem>
