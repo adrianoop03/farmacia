@@ -15,7 +15,7 @@ export default function App() {
     <Routes>
       {/* Acceso público */}
       <Route path="/login" element={<SignIn />} />
-
+      <Route path="/register" element={<SignUp />} />
       {/* Secciones del panel administrativo */}
       <Route element={<DashboardLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
@@ -24,7 +24,7 @@ export default function App() {
         <Route path="/categorias" element={<Categorias />} />*/}
 
         {/* Alta de empleados, dentro del panel */}
-        <Route path="/empleados/nuevo" element={<SignUp />} />
+        
       </Route>
 
       {/* Rutas desconocidas */}
