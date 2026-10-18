@@ -1,6 +1,4 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import SignIn from './pages/sign-in/SignIn'
-import SignUp from './pages/sign-up/SignUp'
 import DashboardLayout from './layouts/DashboardLayout'
 import Dashboard from './pages/dashboard/Dashboard'
 
@@ -20,8 +18,9 @@ import MedicamentoEdit from './pages/medicamentos/components/MedicamentoEdit'
 export default function App() {
   return (
     <Routes>
-      <Route path="/login" element={<SignIn />} />
-      <Route path="/register" element={<SignUp />} />
+      <Route path="/" element={<Navigate to="/dashboard" replace />} />
+      <Route path="/login" element={<Navigate to="/dashboard" replace />} />
+      <Route path="/register" element={<Navigate to="/dashboard" replace />} />
 
       <Route element={<DashboardLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
@@ -42,7 +41,7 @@ export default function App() {
         <Route path="/medicamentos/:medicamentoId/edit" element={<MedicamentoEdit />} />
       </Route>
 
-      <Route path="*" element={<Navigate to="/login" replace />} />
+      <Route path="*" element={<Navigate to="/dashboard" replace />} />
     </Routes>
   )
 }

@@ -3,7 +3,8 @@
 // Capa de datos del CRUD de empleados. Habla con la API de Flask.
 // El resto de los componentes sigue usando `id`; aquí se traduce desde/hacia `id_empleado`.
 
-const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:5000/api';
+import { API_URL, request } from '../../../services/apiClient';
+
 const EMPLEADOS_URL = `${API_URL}/empleados`;
 
 // ---------- Helpers ----------
@@ -22,27 +23,6 @@ function toApi(data) {
     email: data.email?.trim() ? data.email.trim() : null, // email es opcional
     cargo: (data.cargo ?? '').trim(),
   };
-}
-
-async function request(url, options = {}) {
-  let response;
-  try {
-    response = await fetch(url, {
-      headers: { 'Content-Type': 'application/json' },
-      ...options,
-    });
-  } catch {
-    throw new Error('No se pudo conectar con el servidor.');
-  }
-
-  if (!response.ok) {
-    const body = await response.json().catch(() => ({}));
-    const detalle = body.errores ? Object.values(body.errores).join('. ') : null;
-    throw new Error(
-      body.message ?? body.error ?? detalle ?? `Error del servidor (${response.status})`,
-    );
-  }
-  return response.status === 204 ? null : response.json();
 }
 
 function compareValues(a, b) {
