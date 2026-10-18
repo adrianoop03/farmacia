@@ -32,3 +32,6 @@ backend/.env.*
 
 # Excepción para una plantilla sin credenciales
 !backend/.env.example
+.env
+venv/
+.venv/
