@@ -222,7 +222,7 @@ Base: `http://localhost:5000/api`
 
 | Dashboard  | Categorías |
 |---|---|
-| ![Dashboard](docs/capturas/dashboard.png)  | ![Categorías](docs/capturas/categorias.png) |
+| ![Dashboard](docs/capturas/dashboard.png)  | ![Categorias](docs/capturas/categorias.png) |
 
 | Medicamentos | Empleados |
 |---|---|
