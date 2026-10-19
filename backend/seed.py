@@ -1,11 +1,26 @@
 from datetime import date
-
+import re
+from sqlalchemy.exc import OperationalError
+from sqlalchemy_utils import database_exists, create_database
 from werkzeug.security import generate_password_hash
 
+from config import config
 from app import app
 from models import Categoria, Empleado, Medicamento, Usuario, db
 
-
+DATABASE_CONNECTION_URI = config.SQLALCHEMY_DATABASE_URI
+try:
+    if not database_exists(DATABASE_CONNECTION_URI):
+        print("Base de datos no encontrada \nCreando base de datos...")
+        create_database(DATABASE_CONNECTION_URI)
+        print("Base de datos creada!")
+except OperationalError:
+    print("Error de conexión a la base de datos. Verifique que las credenciales sean correctas y la configuración.")
+    exit()
+except Exception:
+    print("Error al crear la base de datos")
+        
+        
 CATEGORIAS = [
     ("Analgésicos", "Medicamentos para aliviar el dolor."),
     ("Antibióticos", "Medicamentos para tratar infecciones bacterianas."),
@@ -51,6 +66,7 @@ USUARIOS = [
 ]
 
 
+        
 def seed_database():
     db.create_all()
 
@@ -115,4 +131,6 @@ def seed_database():
 if __name__ == "__main__":
     with app.app_context():
         seed_database()
-    print("Seed completada: 10 categorías, 10 medicamentos, 10 empleados y 2 usuarios.")
+    print(
+        f"Seed completada en '{config.DB_NAME}': 10 categorías, 10 medicamentos, 10 empleados y 2 usuarios."
+    )
